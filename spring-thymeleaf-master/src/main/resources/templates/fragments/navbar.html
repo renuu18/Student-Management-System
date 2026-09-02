@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${pageTitle}">JSchool</title>
+</head>
+<body>
+<nav th:fragment="navbar" class="navbar navbar-fixed-top navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand ml-2" th:href="@{/}">JSchool</a>
+    <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" th:href="@{/static}"
+          >Home</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/management/about}">About us</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+          >
+            Services
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li>
+              <a class="dropdown-item" th:href="@{/management/courses}"
+              >Courses</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" th:href="@{/management/prices}"
+              >Prices</a
+              >
+            </li>
+            <li>
+              <hr class="dropdown-divider"/>
+            </li>
+            <li>
+              <a class="dropdown-item" th:href="@{/management/library}"
+              >Library</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled">Coming soon</a>
+        </li>
+      </ul>
+      <form
+              id="search-form"
+              th:action="@{/students/search}"
+              class="d-flex"
+              method="POST"
+      >
+        <input
+                class="form-control me-2"
+                name="keyword"
+                th:value="${keyword}"
+                type="search"
+                placeholder="Legacy students search"
+                aria-label="Legacy students search"
+        />
+        <button class="btn btn-outline-success" type="submit">
+          Search
+        </button>
+      </form>
+    </div>
+  </div>
+</nav>
+</body>
+</html>
